@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors())
 app.post("/getInp", (req, res) => {
     console.log("oke bro")
-    let resPoem = readReactInp("")
+    let resPoem = readReactInp(req.body.poemStarter)
     res.json({resPoem})
 })
 
