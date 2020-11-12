@@ -9,8 +9,10 @@ def get_poem(text: str) -> str:
 
     make_poem = pipeline('text-generation', model="./gpt2", tokenizer=custokenizer, device=0)
     poem = make_poem('<s>' + text)
-    return "\n".join(str(poem[0]['generated_text'][3:]).split("\n")[:4])
+    final_res = (poem[0]['generated_text'][3:])
+    print(final_res)
+    return final_res
 
 if __name__ == "__main__":
     sentence = ' '.join(sys.argv[1:])
-    print(get_poem(sentence))
+    print("\n".join(str(get_poem(sentence)).split("\n")[:4]))
